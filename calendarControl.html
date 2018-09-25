@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calendar Control</title>
+<link rel="stylesheet" type="text/css" href="calendarControl.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="calendarControl.js"></script>
+</head>
+<body>
+        <div class="container">
+                <div id="header">
+                  <div class="containerPartLeft">
+                    <div class="containerPart">
+                      <label class="fontDark fontBig">Select Plan Duration</label>
+                    </div>
+                  </div>
+                </div>
+                <div id="info">
+                  <div class="containerPartLeft">
+                    <div class="containerPart"><label><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="15" viewBox="0 0 50 50" style="fill:#333333;"><g id="surface1"><path style=" " d="M 12 0 C 10.90625 0 10 0.90625 10 2 L 10 4 L 4 4 C 3.476563 4 2.945313 4.191406 2.570313 4.570313 C 2.191406 4.945313 2 5.476563 2 6 L 2 46 C 2 46.523438 2.191406 47.054688 2.570313 47.433594 C 2.945313 47.808594 3.476563 48 4 48 L 46 48 C 46.523438 48 47.054688 47.808594 47.433594 47.433594 C 47.808594 47.054688 48 46.523438 48 46 L 48 6 C 48 5.476563 47.808594 4.945313 47.433594 4.570313 C 47.054688 4.191406 46.523438 4 46 4 L 40 4 L 40 2 C 40 0.90625 39.09375 0 38 0 L 36 0 C 34.90625 0 34 0.90625 34 2 L 34 4 L 16 4 L 16 2 C 16 0.90625 15.09375 0 14 0 Z M 12 2 L 14 2 L 14 8 L 12 8 Z M 36 2 L 38 2 L 38 8 L 36 8 Z M 4 6 L 10 6 L 10 8 C 10 9.09375 10.90625 10 12 10 L 14 10 C 15.09375 10 16 9.09375 16 8 L 16 6 L 34 6 L 34 8 C 34 9.09375 34.90625 10 36 10 L 38 10 C 39.09375 10 40 9.09375 40 8 L 40 6 L 46 6 L 46 13 L 4 13 Z M 4 15 L 46 15 L 46 46 L 4 46 Z M 10 19 L 10 42 L 40 42 L 40 19 Z M 12 21 L 17 21 L 17 26 L 12 26 Z M 19 21 L 24 21 L 24 26 L 19 26 Z M 26 21 L 31 21 L 31 26 L 26 26 Z M 33 21 L 38 21 L 38 26 L 33 26 Z M 12 28 L 17 28 L 17 33 L 12 33 Z M 19 28 L 24 28 L 24 33 L 19 33 Z M 26 28 L 31 28 L 31 33 L 26 33 Z M 33 28 L 38 28 L 38 33 L 33 33 Z M 12 35 L 17 35 L 17 40 L 12 40 Z M 19 35 L 24 35 L 24 40 L 19 40 Z M 26 35 L 31 35 L 31 40 L 26 40 Z M 33 35 L 38 35 L 38 40 L 33 40 Z "></path></g></svg></label></div>
+                    <div class="containerPart"><label class="fontLite fontBig">Calendar</label></div>
+                  </div>
+                  <div class="containerPartRight">
+                    <div class="containerPart"><label class="fontSmall fontLite">Current Sales Week</label><br /><label class="fontDark fontMedium">28/2013</label></div>
+                    <div class="containerPart"><label class="fontSmall fontLite">Daily Sales Thru</label><br /><label class="fontDark fontMedium">Sun 8/11/2013</label></div>
+                  </div>
+                </div>
+                <div id="list">
+                  <div class="containerPartLeft">
+                    <div class="containerPart">
+                      <label class="fontSmall fontDark">Pre-defined date ranges</label>
+                      <br />
+                      <ul id="savedDates" class="fontSmall fontDark">
+                        <li>2013 Year</li>
+                        <li>Current</li>
+                        <li>Fall 2014</li>
+                        <li>Fall 2009</li>
+                        <li>Last 14 Weeks</li>
+                        <li>Last 23 Weeks</li>
+                        <li>Last 4 Weeks</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div id="detail">
+                  <div class="containerPartLeft">
+                    <div class="containerPart">
+                      <label class="fontSmall fontDark">Select by</label><br />
+                      <select id="calSelectBy">
+                                  <option value="period">Period</option>
+                                  <option value="week">Week</option>                    
+                                </select>
+                    </div>
+                    <div class="containerPart">
+                      <label class="fontSmall fontDark">Date Type</label><br />
+                      <select id="calDateType">
+                                  <option value="dynamic">Dynamic</option>
+                            <option value="static">Static</option>
+                            <option value="switch">Dynamic Switch</option>
+                            <option value="recurring">Recurring</option>
+                                </select>
+                    </div>
+                    <div class="containerPart">
+                      <label class="fontSmall fontDark">Dynamic date relative to</label><br />
+                      <select id="calDateDynamic">
+                                 <option value="current">Current</option>
+                            <option value="plan">Plan</option>
+                            <option value="store">Store Open</option>   
+                                </select>
+                    </div>
+                  </div>
+                </div>
+                <div id=main>
+                  <div class="containerPartLeft">
+                    <div class="containerPart">
+                      <div id="calPicker">
+                        <div class="cal-sel-align"><label>Year</label> <label>2008</label>&nbsp;&nbsp;
+                          <button id="cal_prev" class="cal-sel-but" style="margin-left: 2px;"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                   width="15" height="15"
+                   viewBox="0 0 30 30"
+                   style="fill:#2196F3;">    <path style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;isolation:auto;mix-blend-mode:normal" d="M 21.09375 2.984375 A 2.0002 2.0002 0 0 0 19.837891 3.3730469 L 5.8378906 13.373047 A 2.0002 2.0002 0 0 0 5.8378906 16.626953 L 19.837891 26.626953 A 2.0002 2.0002 0 1 0 22.162109 23.373047 L 10.439453 15 L 22.162109 6.6269531 A 2.0002 2.0002 0 0 0 21.09375 2.984375 z" font-weight="400" font-family="sans-serif" white-space="normal" overflow="visible"></path></svg></button>
+                          <button id="cal_next" class="cal-sel-but" style="margin-left: 2px;"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                   width="15" height="15"
+                   viewBox="0 0 30 30"
+                   style="fill:#2196F3;">    <path style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;isolation:auto;mix-blend-mode:normal" d="M 9.0449219 2.984375 A 2.0002 2.0002 0 0 0 7.8378906 6.6269531 L 19.560547 15 L 7.8378906 23.373047 A 2.0002 2.0002 0 1 0 10.162109 26.626953 L 24.162109 16.626953 A 2.0002 2.0002 0 0 0 24.162109 13.373047 L 10.162109 3.3730469 A 2.0002 2.0002 0 0 0 9.0449219 2.984375 z" font-weight="400" font-family="sans-serif" white-space="normal" overflow="visible"></path></svg></button>
+                        </div>
+                        <div id="cal_div">
+                          <table id="cal_table">
+                            <tbody>
+                              <tr>
+                                <td>Feb</td>
+                                <td class="">1</td>
+                                <td class="">2</td>
+                                <td class="">3</td>
+                                <td class="">4</td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Mar</td>
+                                <td class="">5</td>
+                                <td class="">6</td>
+                                <td class="">7</td>
+                                <td class="">8</td>
+                                <td class="">9</td>
+                              </tr>
+                              <tr>
+                                <td>Apr</td>
+                                <td class="">10</td>
+                                <td class="">11</td>
+                                <td class="">12</td>
+                                <td class="">13</td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>May</td>
+                                <td class="">14</td>
+                                <td class="">15</td>
+                                <td class="">16</td>
+                                <td class="">17</td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Jun</td>
+                                <td>18</td>
+                                <td>19</td>
+                                <td>20</td>
+                                <td>21</td>
+                                <td>22</td>
+                              </tr>
+                              <tr>
+                                <td>Jul</td>
+                                <td>23</td>
+                                <td>24</td>
+                                <td>25</td>
+                                <td>26</td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Aug</td>
+                                <td>27</td>
+                                <td>28</td>
+                                <td>29</td>
+                                <td>30</td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Sep</td>
+                                <td>31</td>
+                                <td>32</td>
+                                <td>33</td>
+                                <td>34</td>
+                                <td>35</td>
+                              </tr>
+                              <tr>
+                                <td>Oct</td>
+                                <td>36</td>
+                                <td>37</td>
+                                <td>38</td>
+                                <td>39</td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Nov</td>
+                                <td>40</td>
+                                <td>41</td>
+                                <td>42</td>
+                                <td>43</td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Dec</td>
+                                <td>44</td>
+                                <td>45</td>
+                                <td>46</td>
+                                <td>47</td>
+                                <td>48</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div id="calButtons">
+                          <button id="cal_save">Save Range</button>
+                          <button id="cal_reset">Reset</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="footer">
+                  <div class="containerPartLeft">
+                    <div class="containerPart">
+                      <button @click="buttOn">OK</button>
+                      <button @click="">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+</body>
+</html>
